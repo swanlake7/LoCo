@@ -10,13 +10,30 @@
     background: grey;
     color:white;
   }
-  .search {
-    /* min-width: 8em;*/
-    font-size: 1.8em;
-    /* background: blue; */
-    /* width:60%; */
+
+  .hero h2 {
+    position: relative;
+    left: 3em;
+    padding-bottom:1.5em;
+  }
+ 
+  #searchbtn, #search {
+    border-radius: .5rem;
+    color:rgb(56, 56, 56);
+    height:3.5rem;
+    font-size: 2.75rem;
+  }
+
+  #search {
+    margin-right:1em;
+    min-width: 25rem;
+    width:60%;
 
   }
-  .search input {
-    margin-right:1em;
+
+  #searchbtn {
+
+    background: white;
+    border: 1px rgb(58, 58, 58) solid;
   }
+
