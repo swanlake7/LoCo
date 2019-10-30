@@ -3,3 +3,20 @@
     display: table;
     clear: both;
   }
+
+  .hero {
+    font-size: 2em;
+    margin-bottom: 2em;
+    background: grey;
+    color:white;
+  }
+  .search {
+    /* min-width: 8em;*/
+    font-size: 1.8em;
+    /* background: blue; */
+    /* width:60%; */
+
+  }
+  .search input {
+    margin-right:1em;
+  }
