@@ -11,6 +11,10 @@
     color:white;
   }
 
+  .hero h1 {
+    padding-left:1.5rem;
+  }
+
   .hero h2 {
     position: relative;
     left: 3em;
@@ -25,10 +29,15 @@
   }
 
   #search {
-    margin-right:1em;
-    min-width: 25rem;
-    width:60%;
+    width:80%;
 
+  }
+
+  .columns, .column {
+    /* width:100; */
+    box-sizing: border-box;
+    overflow: hidden;
+    width:100%;
   }
 
   #searchbtn {
