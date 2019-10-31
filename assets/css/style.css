@@ -3,3 +3,65 @@
     display: table;
     clear: both;
   }
+
+  .hero {
+    font-size: 2em;
+    margin-bottom: 2em;
+    background: rgba(128, 128, 128, .2);
+    color:white;
+    /* text-align: center; */
+
+  }
+
+  .hero h1 {
+    padding-left:1.5rem;
+  }
+
+  .hero h2 {
+    position: relative;
+    left: 3em;
+    padding-bottom:1.5em;
+  }
+ 
+  #searchbtn, #search {
+    border-radius: .5rem;
+    color:rgb(56, 56, 56);
+    height:3.5rem;
+    font-size: 2.75rem;
+    padding: .1em 1em 1.5em;
+  }
+
+  #search {
+    width:80%;
+  }
+
+  .columns, .column {
+    /* width:100; */
+    box-sizing: border-box;
+    overflow: hidden;
+    width:100%;
+  }
+
+  #searchbtn {
+    background: rgba(128, 128, 128, .2);
+    border: 1px rgb(58, 58, 58) solid;
+    color: white;
+  
+  }
+
+.columns{
+  padding: 0 1em  ;
+  /* box-sizing: border-box; */
+ }
+ body{
+   max-width: 100vw;
+   overflow: hidden;
+   background: url("../img/loco.jpeg");
+   min-height: 100vh;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;;
+ }
+
+
+ 

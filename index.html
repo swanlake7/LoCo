@@ -10,6 +10,8 @@
     <script type="text/javascript" src="assets/js/script.js"></script>
 
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bulma.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +19,30 @@
 </head>
 
 <body>
+    <header class="hero">
+        <div class="columns">
+            <div class="column is-offset-1">
+                <h1>LoCo</h1>
+                <h2 class="small">A search for happenings</h2>
+            </div>
+    </header>
 
+    <section>
+        <div class="columns">
+            <div class="column is-three-fifths is-offset-2">
+                <div class="search level">
+                    <div class="level-item">
+                        <input type="text" id="search"></input>
+                    </div>
+                    <div class="level-item">
+                        <button id="searchbtn">Search</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
 
     <script src="./assets/js/weather.js"></script>
