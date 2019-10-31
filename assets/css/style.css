@@ -58,6 +58,9 @@
    overflow: hidden;
    background: url("../img/loco.jpeg");
    min-height: 100vh;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;;
  }
 
 
