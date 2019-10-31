@@ -9,6 +9,7 @@
     margin-bottom: 2em;
     background: grey;
     color:white;
+    /* text-align: center; */
   }
 
   .hero h2 {
@@ -26,14 +27,23 @@
 
   #search {
     margin-right:1em;
-    min-width: 25rem;
-    width:60%;
-
+    /* min-width: 25rem; */
+    width:100%;
+    
   }
 
   #searchbtn {
-
     background: white;
     border: 1px rgb(58, 58, 58) solid;
   }
 
+.columns{
+  padding: 0 1em  ;
+  /* box-sizing: border-box; */
+ }
+ body{
+   max-width: 100vw;
+   overflow: hidden;
+ }
+
+ 
