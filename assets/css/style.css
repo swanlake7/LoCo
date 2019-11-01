@@ -28,12 +28,16 @@
     color:rgb(56, 56, 56);
     height:3.5rem;
     font-size: 2.75rem;
-    padding: .1em 1em 1.5em;
   }
 
   #search {
-    width:80%;
+    width:100%;
   }
+.searchLevel {
+  max-width:60%;
+  padding-left:1em;
+  padding-right:1em;
+}
 
   .columns, .column {
     /* width:100; */
@@ -46,6 +50,8 @@
     background: rgba(128, 128, 128, .2);
     border: 1px rgb(58, 58, 58) solid;
     color: white;
+    padding: .1em 1em 1.5em;
+
   
   }
 
@@ -64,4 +70,8 @@
  }
 
 
- 
+ /* @media screen and (max-width: 769px) {
+   .searchLevel {
+     max-width:100%;
+   }
+ } */
