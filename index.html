@@ -36,6 +36,10 @@
 
     <section class="section">
         <div class="container">
+            <form>
+                <input type="radio" name="searchType" value="band">by band</input>
+                <input type="radio" name="searchType" value="city">by city and date</input>
+            </form>
             <div class="columns">
                 <!-- <div class="column is-three-fifths is-offset-one-fifth"> -->
                 <!-- <div class="column">
@@ -48,11 +52,25 @@
                                 </div>
                             </div>
                         </div> -->
+
+
                 <div class="column is-three-quarters">
-                    <input type="text" id="search"></input>
+                    <div class="level">
+                        <div class="level-item">
+                            <input type="text" id="search" value="Band"></input>
+                        </div>
+                    </div>
+                    <div class="level">
+                        <div class="level-item">
+                            <!-- swap this searchbox for date fields -->
+                            <input type="text" id="search"></input>
+                        </div>
+                    </div>
                 </div>
                 <div class="column has-text-centered">
-                    <button id="searchMe">Search</button>
+
+                    <button id="searchbtn" class="btn">Search</button>
+
                 </div>
                 <div id="results"></div>
             </div>
