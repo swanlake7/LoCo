@@ -27,7 +27,7 @@ body{
     padding-bottom:1.5em;
   }
   
-  #searchbtn, #search {
+  #searchbtn, .search {
     border-radius: .5rem;
     height:3.5rem;
     font-size: 2.75rem;
@@ -54,15 +54,33 @@ body{
     text-shadow: none; 
 }
 
-#search {
+.search {
     width:100%;
     color:rgb(78, 78, 78);
     background: rgba(255, 255, 255, 0.41);
     height:4.5rem;
   }
 
- 
+ .searchRadio{
+   font-size: 50px;
+   color: white;
+ }
 
 .container {
       max-width: 80%;
   }
+
+.citySearch{
+  display: none;
+}
+
+.select {
+  background: rgba(128, 128, 128, .2);
+  border: 1px rgb(94, 94, 94) solid;
+  color: white;
+  border-radius: .5rem;  
+}
+
+option {
+  background-color: rgba(128, 128, 128, .5);
+}
