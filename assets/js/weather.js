@@ -1,37 +1,32 @@
-let latitude = 37.8267;
-let longitude = -122.4233;
-let currently = {
-    time: "",
-    summary: "",
-    temperature: "",
-    humidity: "",
-    precipProbability: "",
-    nearestStormDistance: "",
-    icon: ""
-}
-
-const queryURl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/5f327f3818b345c19bad8b553c5e00de/" + latitude + "," + longitude
-console.log(queryURls)
-
-$.ajax({
-    url: queryURl,
-    method: "GET"
-}).then(function (response) {
-    console.log(response)
-
-    function convertToF(celsius) {
-        var fahrenheit;
-        fahrenheit = (celsius * (9 / 5)) + 32;
-        return fahrenheit;
+function getWeather(latitude, longitude) {
+    let current = {
+        summary: "",
+        temperature: "",
+        humidity: "",
+        precipProbability: "",
+        icon: ""
     }
 
-    currently.temperature = convertToF(repsonse.currently.temperature);
-    currently.time = response.currently.time;
-    currently.summary = response.currently.summary;
-    currently.humidity = response.currently.humidity;
-    currently.precipProbability = response.currently.precipProbability;
-    currently.nearestStormDistance = response.currently.nearestStormDistance;
-    currently.icon = response.currently.icon;
+    const queryURlWeather = `https://darkskyproxy.jacoblamont.now.sh/api/weather?lat=${latitude}&lng=${longitude}`;
+    console.log(queryURlWeather)
 
-    console.log(currently)
-})
+    $.ajax({
+        url: queryURlWeather,
+        method: "GET"
+    }).then(function (response) {
+        
+        function convertToF(celsius) {
+            var fahrenheit;
+            fahrenheit = (celsius * (9 / 5)) + 32;
+            return fahrenheit;
+        }
+
+        current.temperature = convertToF(response.currently.temperature);
+        current.summary = response.currently.summary;
+        current.humidity = response.currently.humidity;
+        current.precipProbability = response.currently.precipProbability;
+        current.icon = response.currently.icon;
+
+        console.log(current);
+    });
+};
