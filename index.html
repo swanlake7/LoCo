@@ -37,8 +37,10 @@
     <section class="section">
         <div class="container">
             <form>
-                <input type="radio" name="searchType" value="band">by band</input>
-                <input type="radio" name="searchType" value="city">by city and date</input>
+                <input class="searchRadio" type="radio" name="searchType" id="bandRadio" value="band" checked>by
+                band</input>
+                <input class="searchRadio" type="radio" name="searchType" id="cityRadio" value="city">by city and
+                date</input>
             </form>
             <div class="columns">
                 <!-- <div class="column is-three-fifths is-offset-one-fifth"> -->
@@ -52,18 +54,40 @@
                                 </div>
                             </div>
                         </div> -->
-
-
                 <div class="column is-three-quarters">
-                    <div class="level">
+                    <div class="level" id="bandSearch">
                         <div class="level-item">
-                            <input type="text" id="search" value="Band"></input>
+                            <input type="text" class="search" id="bandVal" placeholder="Band"></input>
                         </div>
                     </div>
-                    <div class="level">
+
+                    <div class="level citySearch" id="citySearch">
                         <div class="level-item">
                             <!-- swap this searchbox for date fields -->
-                            <input type="text" id="search"></input>
+                            <input type="text" class="search" id="cityVal" placeholder="City"></input>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="level citySearch" id="citySearchScroll">
+                        <div class="level-item">
+                            <select class="select">
+                                <option value="0">Choose Month:</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -77,7 +101,37 @@
 
         </div>
     </section>
+    <section class="section">
+        <div id="results" class="container" style="background-color:rgba(238, 238, 238, 0.197);min-height: 10em;">
 
+        </div>
+
+
+
+
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        var searchRadio = $(".searchRadio");
+        var bandRadioJq = $("#bandRadio");
+        var cityRadioJq = $("#cityRadio");
+
+        cityRadioJq.on("click", function () {
+            $(".citySearch").css("display", "flex");
+            $("#bandSearch").css("display", "none");
+        });
+
+        bandRadioJq.on("click", function () {
+            $(".citySearch").css("display", "none");
+            $("#bandSearch").css("display", "flex");
+        });
+
+
+
+
+    </script>
 
 </body>
 
