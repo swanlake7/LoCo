@@ -19,7 +19,7 @@
 
     <script src="./assets/js/weather.js"></script>
 
-    <title>Document</title>
+    <title>LoCo</title>
 </head>
 
 <body>
@@ -35,12 +35,10 @@
     </header>
 
     <section class="section">
-        <div class="container">
+        <div class="container">     
             <form>
-                <input class="searchRadio" type="radio" name="searchType" id="bandRadio" value="band" checked>by
-                band</input>
-                <input class="searchRadio" type="radio" name="searchType" id="cityRadio" value="city">by city and
-                date</input>
+                <img src = "assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band" />
+                <img src = "assets/img/city.png"  class="searchTopic btn" id="cityButton" value="city" />
             </form>
             <div class="columns">
                 <!-- <div class="column is-three-fifths is-offset-one-fifth"> -->
@@ -112,25 +110,22 @@
 
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        var searchRadio = $(".searchRadio");
-        var bandRadioJq = $("#bandRadio");
-        var cityRadioJq = $("#cityRadio");
-
-        cityRadioJq.on("click", function () {
+   <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+   <script type="text/javascript">
+    $(document).ready(function () {
+            $("#cityButton").on("click", function () {
             $(".citySearch").css("display", "flex");
             $("#bandSearch").css("display", "none");
         });
 
-        bandRadioJq.on("click", function () {
+       $("#bandButton").on("click", function () {
             $(".citySearch").css("display", "none");
             $("#bandSearch").css("display", "flex");
         });
 
-
-
-
+    
+    
+    });
     </script>
 
 </body>
