@@ -127,7 +127,10 @@
 //object for ajax
         $('#searchbtn').on("click",function (e) {
             e.preventDefault();
+            //search by band
             searchObj[performers] = $('bandVal').val();
+            
+            //search by city and month
             searchObj["venu.city"] = $('cityVal').val();
             searchObj[q] = $('monthSelect').val();
         });
@@ -138,5 +141,4 @@
     </script>
 
 </body>
-
 </html>
