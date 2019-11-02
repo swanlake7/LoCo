@@ -54,6 +54,33 @@ body{
     text-shadow: none; 
 }
 
+#cityButton:hover {
+  box-shadow: rgb(124, 124, 124) 0px 0px 15px 15px;
+    text-shadow: 15px 15px .5em rgb(26, 66, 85); 
+    transition: all .03s;
+}
+
+#bandButton:hover{
+  box-shadow: rgb(124, 124, 124) 0px 0px 15px 15px;
+    text-shadow: 15px 15px .5em rgb(26, 66, 85);  
+    transition: all .03s;
+}
+
+#cityButton{
+  border-width: 5px; 
+  border-style: solid;
+  border-color: rgb(78, 78, 78);
+  border-radius: .7rem;
+}
+
+#bandButton{
+  margin-right: 30px;
+  border-width: 5px; 
+  border-style: solid;
+  border-color: rgb(78, 78, 78);
+  border-radius: .7rem;
+}
+
 .search {
     width:100%;
     color:rgb(78, 78, 78);
@@ -61,9 +88,8 @@ body{
     height:4.5rem;
   }
 
- .searchRadio{
-   font-size: 50px;
-   color: white;
+ .searchTopic{  
+  height: 80px;  
  }
 
 .container {
@@ -84,3 +110,4 @@ body{
 option {
   background-color: rgba(128, 128, 128, .5);
 }
+
