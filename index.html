@@ -71,7 +71,7 @@
 
                     <div class="level citySearch" id="citySearchScroll">
                         <div class="level-item">
-                            <select class="select">
+                            <select id="monthSelect" class="select">
                                 <option value="0">Choose Month:</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
@@ -113,7 +113,7 @@
    <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
    <script type="text/javascript">
     $(document).ready(function () {
-   let ajaxObject;
+   let searchObj;
    
             $("#cityButton").on("click", function () {
             $(".citySearch").css("display", "flex");
@@ -125,12 +125,15 @@
             $("#bandSearch").css("display", "flex");
         });
 //object for ajax
-        $('#searchbtn').on("click",function {
-            ajaxObject.performer = $('bandVal').val();
-            ajaxObject."value.city" = $('cityVal').val();
-            ajaxObject.q = monthselector?
-        })
+        $('#searchbtn').on("click",function (e) {
+            e.preventDefault();
+            searchObj[performers] = $('bandVal').val();
+            searchObj["venu.city"] = $('cityVal').val();
+            searchObj[q] = $('monthSelect').val();
+        });
     
+            
+
     });
     </script>
 
