@@ -66,19 +66,9 @@ body{
     transition: all .03s;
 }
 
-#cityButton{
-  border-width: 5px; 
-  border-style: solid;
-  border-color: rgb(78, 78, 78);
-  border-radius: .7rem;
-}
 
 #bandButton{
   margin-right: 30px;
-  border-width: 5px; 
-  border-style: solid;
-  border-color: rgb(78, 78, 78);
-  border-radius: .7rem;
 }
 
 .search {
@@ -88,8 +78,16 @@ body{
     height:4.5rem;
   }
 
+  .search::placeholder {
+    color:rgb(124, 124, 124);  
+  }
+
  .searchTopic{  
-  height: 80px;  
+  height: 40px;  
+  border-width: 4px; 
+  border-style: solid;
+  border-color: rgb(78, 78, 78);
+  border-radius: .7rem;
  }
 
 .container {

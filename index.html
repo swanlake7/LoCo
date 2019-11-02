@@ -37,8 +37,8 @@
     <section class="section">
         <div class="container">     
             <form>
-                <img src = "assets/img/musicLogo.png" class="searchTopic" id="bandButton" value="band" ></img>
-                <img src = "assets/img/city.png"  class="searchTopic" id="cityButton" value="city"></img>
+                <img src = "assets/img/musicLogo.png" class="searchTopic" id="bandButton" value="band" />
+                <img src = "assets/img/city.png"  class="searchTopic" id="cityButton" value="city" />
             </form>
             <div class="columns">
                 <!-- <div class="column is-three-fifths is-offset-one-fifth"> -->
@@ -110,9 +110,10 @@
 
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $("#cityButton").on("click", function () {
+   <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+   <script type="text/javascript">
+    $(document).ready(function () {
+            $("#cityButton").on("click", function () {
             $(".citySearch").css("display", "flex");
             $("#bandSearch").css("display", "none");
         });
@@ -122,9 +123,9 @@
             $("#bandSearch").css("display", "flex");
         });
 
-
-
-
+    
+    
+    });
     </script>
 
 </body>
