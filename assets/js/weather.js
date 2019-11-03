@@ -28,5 +28,13 @@ function getWeather(latitude, longitude) {
         current.icon = response.currently.icon;
 
         console.log(current);
+
+        $('#weatherResults').append(`<h2><img src="${current.icon}" /></h2>
+        <ul>
+        <li>${current.summary}</li>
+        <li>${current.temperature}</li>
+        <li>${current.humidity}</li>
+        <li>${current.precipProbability}</li>
+        </ul>`)
     });
 };
