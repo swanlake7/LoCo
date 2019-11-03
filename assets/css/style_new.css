@@ -157,11 +157,13 @@ events results
   box-sizing: border-box;
   /* border-radius: .25em; */
 }
-
-#results li:nth-child(even) {
+#results ul:nth-of-type(even) {
+  background-color:rgba(238, 238, 238, 0.492);
+}
+/* #results ul:nth-child(even) {
   background-color:rgba(238, 238, 238, 0.492);
 
-}
+} */
 
 
 
