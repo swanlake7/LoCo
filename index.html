@@ -35,67 +35,59 @@
     </header>
 
     <section class="section">
-        <div class="container">     
+        <div class="container">
             <form>
-                <img src = "assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band" />
-                <img src = "assets/img/city.png"  class="searchTopic btn" id="cityButton" value="city" />
+                <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band" />
+                <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city" />
             </form>
             <div class="columns">
-                <!-- <div class="column is-three-fifths is-offset-one-fifth"> -->
-                <!-- <div class="column">
-                            <div class="search level">
-                                <div class="level-item searchLevel">
-                                    <input type="text" id="search"></input>
-                                </div>
-                                <div class="level-item">
-                                    <button id="searchbtn">Search</button>
-                                </div>
-                            </div>
-                        </div> -->
-                <div class="column is-three-quarters">
-                    <div class="level" id="bandSearch">
-                        <div class="level-item">
+                <div class="column" >
+                    <div class="columns bandCol">
+                        <div class="column" id="bandSearch">
                             <input type="text" class="search" id="bandVal" placeholder="Band"></input>
                         </div>
                     </div>
-
-                    <div class="level citySearch" id="citySearch">
-                        <div class="level-item">
-                            <!-- swap this searchbox for date fields -->
-                            <input type="text" class="search" id="cityVal" placeholder="City"></input>
-
-
-
+                    <div class="columms">
+                        <div class="columns">
+                            <div class="column citySearch" id="citySearch">
+                                <input type=" text" class="search" id="cityVal" placeholder="City"></input>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="level citySearch" id="citySearchScroll">
-                        <div class="level-item">
-                            <select class="select">
-                                <option value="0">Choose Month:</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="column has-text-centered">
+                <div class="column is-narrow has-text-centered">
 
                     <button id="searchbtn" class="btn">Search</button>
 
                 </div>
-                <div id="results"></div>
             </div>
+
+            <div class="columns has-text-centered">
+                <div class="column citySearch" id="citySearchScroll">
+                    <select class="select">
+                        <option value="0">Choose Month:</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="results"></div>
+        </div>
 
         </div>
     </section>
@@ -110,22 +102,22 @@
 
     </section>
 
-   <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-   <script type="text/javascript">
-    $(document).ready(function () {
+    <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script type="text/javascript">
+        $(document).ready(function () {
             $("#cityButton").on("click", function () {
-            $(".citySearch").css("display", "flex");
-            $("#bandSearch").css("display", "none");
-        });
+                $(".citySearch").css("display", "flex");
+                $("#bandSearch").css("display", "none");
+            });
 
-       $("#bandButton").on("click", function () {
-            $(".citySearch").css("display", "none");
-            $("#bandSearch").css("display", "flex");
-        });
+            $("#bandButton").on("click", function () {
+                $(".citySearch").css("display", "none");
+                $("#bandSearch").css("display", "flex");
+            });
 
-    
-    
-    });
+
+
+        });
     </script>
 
 </body>
