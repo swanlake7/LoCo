@@ -28,10 +28,11 @@ function getWeather(latitude, longitude) {
         current.icon = response.currently.icon;
 
         console.log(current);
+        
+// removed from output temporarily: <li><img src="${current.icon}" /></li>
 
         $('#weatherResults').append(`
         <ul>
-        <li><img src="${current.icon}" /></li>
         <li>${current.summary}</li>
         <li>Current Temperature: ${current.temperature}</li>
         <li>Current Humidity: ${current.humidity}</li>
