@@ -11,7 +11,7 @@ body{
 
   .header {
     font-size: 2em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     background: rgba(128, 128, 128, .2);
     color:white;
     /* text-align: center; */
@@ -118,4 +118,10 @@ option {
 
 .bandCol:not(:last-child) {
   margin-bottom:0;
+}
+
+@media only screen and (max-width:550px) {
+  .container {
+    max-width: 90vw;
+  }
 }
