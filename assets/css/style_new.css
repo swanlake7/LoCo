@@ -148,6 +148,8 @@ events results
   background-color: rgba(200,200,200,.5);
   border-radius: .25em;
   margin-bottom:1em;
+  padding-bottom: .5em;
+  padding-top: .5em;
   /* border-bottom:1px solid white; */
   /* padding-bottom:.5em; */
 }
