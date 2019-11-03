@@ -101,7 +101,6 @@
     <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function () {
-            let searchObj;
 
             $("#cityButton").on("click", function () {
                 $(".citySearch").css("display", "flex");
@@ -120,13 +119,14 @@
                 e.preventDefault();
                 let searchParams = {};
                 //search by band
-                searchParams["performers"] = $('bandVal').val();
+                let searchQ = $('#bandVal').val().replace(/\s+/g, '-');
+                console.log("sQ: " + searchQ);
+                searchParams["performers.slug"] = searchQ;
 
                 //search by city and month
                 // searchParams["venu.city"] = $('cityVal').val();
                 // searchParams["q"] = $('monthSelect').val();
-                getEvents();
-                // return searchParams
+                getEvents(searchParams);
             });
 
 
