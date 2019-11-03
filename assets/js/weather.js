@@ -29,12 +29,13 @@ function getWeather(latitude, longitude) {
 
         console.log(current);
 
-        $('#weatherResults').append(`<h2><img src="${current.icon}" /></h2>
+        $('#weatherResults').append(`
         <ul>
+        <li><img src="${current.icon}" /></li>
         <li>${current.summary}</li>
-        <li>${current.temperature}</li>
-        <li>${current.humidity}</li>
-        <li>${current.precipProbability}</li>
+        <li>Current Temperature: ${current.temperature}</li>
+        <li>Current Humidity: ${current.humidity}</li>
+        <li>Chance of Raing: ${current.precipProbability}</li>
         </ul>`)
     });
 };
