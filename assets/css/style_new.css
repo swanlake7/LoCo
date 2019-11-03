@@ -134,31 +134,38 @@ option {
 events results
 */
 #results, #weatherResults {
-  background-color:rgba(238, 238, 238, 0.39);
+  /* background-color:rgba(238, 238, 238, 0.39); */
   color:rgb(40, 40, 40);
   font-size:1rem;
   padding-top:1rem;
   border-radius: .5rem;
 }
 
-#results {  margin-left: 1em; margin-right:.6em;}
-#weatherResults {margin-right: 1em; margin-left:.6em;}
+/* #results {  margin-left: 1em; margin-right:.6em;}
+#weatherResults {margin-right: 1em; margin-left:.6em;} */
 
-#results ul {
+#results ul, #weatherResults ul {
+  background-color: rgba(200,200,200,.5);
+  border-radius: .25em;
   margin-bottom:1em;
-  border-bottom:1px solid black;
+  padding-bottom: .5em;
+  padding-top: .5em;
+  /* border-bottom:1px solid white; */
+  /* padding-bottom:.5em; */
 }
 
-#results li {
+#results li, #weatherResults li {
   padding-left: 1em;
   box-sizing: border-box;
-  border-radius: .25em;
+  /* border-radius: .25em; */
 }
-
-#results li:nth-child(odd) {
-  background-color:rgba(238, 238, 238, 0.192);
-
+#results ul:nth-of-type(even) {
+  background-color:rgba(238, 238, 238, 0.492);
 }
+/* #results ul:nth-child(even) {
+  background-color:rgba(238, 238, 238, 0.492);
+
+} */
 
 
 
