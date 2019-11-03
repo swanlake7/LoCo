@@ -24,10 +24,10 @@ function getEvents (searchParams) {
             let eventLon = response.events[i].venue.location.lon;
             
             $("#results").append(`<ul class="eventReturn">
-            <li>Title ${response.events[i].title}</li>
-            <li>Type of event ${response.events[i].type}</li>
-            <li>City ${response.events[i].venue.city}</li>
-            <li>Venue ${response.events[i].venue.name}</li>
+            <li>Title: ${response.events[i].title}</li>
+            <li>Type of event: ${response.events[i].type}</li>
+            <li>City: ${response.events[i].venue.city}</li>
+            <li>Venue: ${response.events[i].venue.name}</li>
             </ul>`)
             
           /*   $("#results").append("<ul>").addClass("eventReturn");
