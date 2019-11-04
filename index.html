@@ -126,9 +126,15 @@
                     searchParams["performers.slug"] = searchQ;
                 } else {
                     //search by city and month
+
+                    let thisYear = new Date().getFullYear();
+                    let lastDay = new Date().setFullYear(thisYear, $('#monthSelect').val(), 0);
+                    console.log(lastDay);
+
                     searchParams["venue.city"] = $('#cityVal').val();
-                    searchParams["q"] = $('#monthSelect').val();
-                    console.log("month " + $('#monthSelect').val())
+                    searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                   // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
+                    console.log("month " + $('#monthSelect').val());
                 }
 
                 getEvents(searchParams);
