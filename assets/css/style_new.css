@@ -1,3 +1,9 @@
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 body{
     max-width: 100vw;
     overflow: hidden;
@@ -9,6 +15,12 @@ body{
     background-attachment: fixed;
   }
 
+a { 
+  color: #1878d1;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 900;
+  }
   .header {
     font-size: 2em;
     margin-bottom: 1em;
@@ -145,7 +157,7 @@ events results
 #weatherResults {margin-right: 1em; margin-left:.6em;} */
 
 #results ul, #weatherResults ul {
-  background-color: rgba(200,200,200,.5);
+  background-color: rgba(200,200,200,.8);
   border-radius: .25em;
   margin-bottom:1em;
   padding-bottom: .5em;
@@ -159,16 +171,29 @@ events results
   box-sizing: border-box;
   /* border-radius: .25em; */
 }
-#results ul:nth-of-type(even) {
+
+.
+/* #results ul:nth-of-type(even) {
   background-color:rgba(238, 238, 238, 0.492);
-}
+} */
 /* #results ul:nth-child(even) {
   background-color:rgba(238, 238, 238, 0.492);
 
 } */
 
+#results h2.responseTitle {
+  color:white;
+}
 
+.resultImg {
+  width: 100px;
+  float: left;
+  padding-right:1rem;
+}
 
+.resultsHead {
+  margin-bottom: 0rem;
+}
 @media only screen and (max-width:550px) {
   .container {
     max-width: 90vw;

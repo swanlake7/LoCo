@@ -127,10 +127,12 @@
                 } else {
                     //search by city and month
                     searchParams["venue.city"] = $('#cityVal').val();
-                    searchParams["q"] = $('#monthSelect').val(); // conditional for if selected needed
+                    searchParams["q"] = $('#monthSelect').val();
+                    console.log("month " + $('#monthSelect').val())
                 }
 
                 getEvents(searchParams);
+                return searchType
             });
 
 
