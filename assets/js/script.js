@@ -26,7 +26,7 @@ function getEvents (searchParams) {
             let eventLat = response.events[i].venue.location.lat;
             let eventLon = response.events[i].venue.location.lon;
             
-            $("#results").append(`<ul class="eventReturn">
+            $("#results").prepend(`<ul class="eventReturn">
             <li><h2>Title: ${response.events[i].title}</h2></li>
             <li>Type of event: ${response.events[i].type}</li>
             <li>City: ${response.events[i].venue.city}</li>
