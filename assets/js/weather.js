@@ -1,4 +1,4 @@
-function getWeather(latitude, longitude) {
+function getWeather(latitude, longitude, datetime_local) {
     let current = {
         summary: "",
         temperature: "",
@@ -7,14 +7,13 @@ function getWeather(latitude, longitude) {
         icon: ""
     }
 
-    const queryURlWeather = `https://darkskyproxy.jacoblamont.now.sh/api/weather?lat=${latitude}&lng=${longitude}`;
-    console.log(queryURlWeather)
+    const queryURlWeather = `https://darkskyproxy.jacoblamont.now.sh/api/weather?lat=${latitude}&lng=${longitude}&time=${datetime_local}&exclude=currently,flags`;
 
     $.ajax({
         url: queryURlWeather,
         method: "GET"
     }).then(function (response) {
-        
+        console.log(response)
         function convertToF(celsius) {
             var fahrenheit;
             fahrenheit = (celsius * (9 / 5)) + 32;
@@ -28,8 +27,8 @@ function getWeather(latitude, longitude) {
         current.icon = response.currently.icon;
 
         console.log(current);
-        
-// removed from output temporarily: <li><img src="${current.icon}" /></li>
+
+        // removed from output temporarily: <li><img src="${current.icon}" /></li>
 
         $('#weatherResults').append(`
         <ul>
@@ -40,3 +39,6 @@ function getWeather(latitude, longitude) {
         </ul>`)
     });
 };
+
+// For testing:
+getWeather(42.3601, -71.0589, '2019-11-04T03:30:00');
