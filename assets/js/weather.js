@@ -13,14 +13,8 @@ function getWeather(latitude, longitude, datetime_local) {
         url: queryURlWeather,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
-        function convertToF(celsius) {
-            var fahrenheit;
-            fahrenheit = (celsius * (9 / 5)) + 32;
-            return fahrenheit;
-        }
 
-        current.temperature = convertToF(response.currently.temperature);
+        current.temperature = response.currently.temperature;
         current.summary = response.currently.summary;
         current.humidity = response.currently.humidity;
         current.precipProbability = response.currently.precipProbability;
@@ -33,7 +27,7 @@ function getWeather(latitude, longitude, datetime_local) {
         $('#weatherResults').append(`
         <ul>
         <li>${current.summary}</li>
-        <li>Current Temperature: ${current.temperature}</li>
+        <li>Current Temperature: ${current.temperature} F</li>
         <li>Current Humidity: ${current.humidity}</li>
         <li>Chance of Raing: ${current.precipProbability}</li>
         </ul>`)
