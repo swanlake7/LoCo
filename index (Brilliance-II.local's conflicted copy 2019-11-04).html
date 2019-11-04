@@ -44,18 +44,18 @@
 
             <select class="select monthSelect" id="monthSelect">
                 <option value="0">Choose Month:</option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
             </select>
 
             <div class="columns" id="searchInputs">
@@ -126,19 +126,12 @@
                     searchParams["performers.slug"] = searchQ;
                 } else {
                     //search by city and month
-
-                    let thisYear = new Date().getFullYear();
-                    let lastDay = new Date().setFullYear(thisYear, $('#monthSelect').val(), 0);
-                    console.log(lastDay);
-
                     searchParams["venue.city"] = $('#cityVal').val();
-                    searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
-                   // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                    console.log("month " + $('#monthSelect').val());
+                    searchParams["q"] = $('#monthSelect').val();
+                    console.log("month " + $('#monthSelect').val())
                 }
 
                 getEvents(searchParams);
-                return searchType
             });
 
 
