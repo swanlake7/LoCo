@@ -1,4 +1,16 @@
 function getWeather(latitude, longitude) {
+    const queryURlWeather = `https://darkskyproxy.jacoblamont.now.sh/api/weather?lat=${latitude}&lng=${longitude}`;
+    console.log(queryURlWeather)
+
+    return $.ajax({
+        url: queryURlWeather,
+        method: "GET"
+    }).then(function (response) {
+        return response.currently;
+    });
+};
+
+function renderWeatherData(weather, eventId) {
     let current = {
         summary: "",
         temperature: "",
@@ -7,30 +19,22 @@ function getWeather(latitude, longitude) {
         icon: ""
     }
 
-    const queryURlWeather = `https://darkskyproxy.jacoblamont.now.sh/api/weather?lat=${latitude}&lng=${longitude}`;
-    console.log(queryURlWeather)
+    current.temperature = weather.temperature;
+    current.summary = weather.summary;
+    current.humidity = weather.humidity;
+    current.precipProbability = weather.precipProbability;
+    current.icon = weather.icon;
 
-    $.ajax({
-        url: queryURlWeather,
-        method: "GET"
-    }).then(function (response) {
+    console.log(current);
 
-        current.temperature = response.currently.temperature;
-        current.summary = response.currently.summary;
-        current.humidity = response.currently.humidity;
-        current.precipProbability = response.currently.precipProbability;
-        current.icon = response.currently.icon;
+    // removed from output temporarily: <li><img src="${current.icon}" /></li>
 
-        console.log(current);
-        
-// removed from output temporarily: <li><img src="${current.icon}" /></li>
-
-        $('#weatherResults').append(`
+    $(`#event-${eventId}`).append(`<div class="column" id="weatherResults">
         <ul>
-        <li>${current.summary}</li>
-        <li>Current Temperature: ${current.temperature} F</li>
-        <li>Current Humidity: ${current.humidity}</li>
-        <li>Chance of Raing: ${current.precipProbability}</li>
-        </ul>`)
-    });
-};
+            <li>${current.summary}</li>
+            <li>Current Temperature: ${current.temperature} F</li>
+            <li>Current Humidity: ${current.humidity}</li>
+            <li>Chance of Raing: ${current.precipProbability}</li>
+        </ul>   
+    </div>`);
+}
