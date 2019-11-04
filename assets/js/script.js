@@ -21,6 +21,7 @@ function getEvents (searchParams) {
         url: cncrtLoctaion,
         method: "GET"
     }).then(function (response) {
+        console.log(response);
         for (i = 0; i < response.events.length; i++) {
             let eventLat = response.events[i].venue.location.lat;
             let eventLon = response.events[i].venue.location.lon;
@@ -30,6 +31,8 @@ function getEvents (searchParams) {
             <li>Type of event: ${response.events[i].type}</li>
             <li>City: ${response.events[i].venue.city}</li>
             <li>Venue: ${response.events[i].venue.name}</li>
+            <li><a href="${response.events[i].url}">Tickets Page</a></li>
+            <li>Average Price: ${response.events[i].stats.average_price}</li>
             </ul>`)
             
           /*   $("#results").append("<ul>").addClass("eventReturn");
@@ -38,7 +41,7 @@ function getEvents (searchParams) {
             $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
             $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
             
-            getWeather(eventLat, eventLon);
+           // getWeather(eventLat, eventLon);
 
         };
     });

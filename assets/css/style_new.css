@@ -9,6 +9,12 @@ body{
     background-attachment: fixed;
   }
 
+a { 
+  color: #1878d1;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 900;
+  }
   .header {
     font-size: 2em;
     margin-bottom: 1em;
@@ -145,7 +151,7 @@ events results
 #weatherResults {margin-right: 1em; margin-left:.6em;} */
 
 #results ul, #weatherResults ul {
-  background-color: rgba(200,200,200,.5);
+  background-color: rgba(200,200,200,.8);
   border-radius: .25em;
   margin-bottom:1em;
   padding-bottom: .5em;
@@ -159,9 +165,9 @@ events results
   box-sizing: border-box;
   /* border-radius: .25em; */
 }
-#results ul:nth-of-type(even) {
+/* #results ul:nth-of-type(even) {
   background-color:rgba(238, 238, 238, 0.492);
-}
+} */
 /* #results ul:nth-child(even) {
   background-color:rgba(238, 238, 238, 0.492);
 
