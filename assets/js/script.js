@@ -44,5 +44,11 @@ function getEvents (searchParams) {
            // getWeather(eventLat, eventLon);
 
         };
+
+        //prepending an imag and name based on first returned values
+        $('#results').prepend(`<div class="clearfix resultsHead">
+        <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+        <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+        </div>`);
     });
 }
