@@ -21,15 +21,26 @@ function getEvents (searchParams) {
         url: cncrtLoctaion,
         method: "GET"
     }).then(function (response) {
+        console.log(response);
         for (i = 0; i < response.events.length; i++) {
             let eventLat = response.events[i].venue.location.lat;
             let eventLon = response.events[i].venue.location.lon;
+            /* let wetArray = [];
+            let locationWet = {
+                long : eventLon,
+                lats : eventLat,
+            }
+            console.log(locationWet);
+            wetArray.push(locationWet); */
             
-            $("#results").append(`<ul class="eventReturn">
+            $("#results").prepend(`<ul class="eventReturn">
             <li><h2>Title: ${response.events[i].title}</h2></li>
             <li>Type of event: ${response.events[i].type}</li>
             <li>City: ${response.events[i].venue.city}</li>
             <li>Venue: ${response.events[i].venue.name}</li>
+            <li>Date: ${response.events[i].datetime_local}</li>
+            <li><a href="${response.events[i].url}">Tickets Page</a></li>
+            <li>Average Price: $${response.events[i].stats.average_price}</li>
             </ul>`)
             
           /*   $("#results").append("<ul>").addClass("eventReturn");
@@ -40,6 +51,20 @@ function getEvents (searchParams) {
             
             getWeather(eventLat, eventLon);
 
+        };
+
+        //prepending an imag and name based on first returned values
+        
+        if (searchType == "band") {
+        $('#results').prepend(`<div class="clearfix resultsHead">
+        <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+        <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+        </div>`);
+        } else {
+            $('#results').prepend(`<div class="clearfix resultsHead">
+            <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+            <h2 class="responseTitle" style="color:#fff">${$("#cityVal").val()}</h2>
+            </div>`);
         };
     });
 }
