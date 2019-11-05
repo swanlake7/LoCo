@@ -65,15 +65,23 @@ function getEvents (searchParams) {
         //prepending an imag and name based on first returned values
         
         if (searchType == "band") {
-        $('#results').prepend(`<div class="clearfix resultsHead">
-        <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
-        <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+        $('#ajaxResponse').prepend(`<div class="columns headRow">
+            <div class="column" id="results">
+                <div class="clearfix resultsHead">
+                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+                    <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+                </div>
+            </div>
         </div>`);
         } else {
-            $('#results').prepend(`<div class="clearfix resultsHead">
-            <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
-            <h2 class="responseTitle" style="color:#fff">${$("#cityVal").val()}</h2>
-            </div>`);
+        $('#ajaxResponse').prepend(`<div class="columns headRow"">
+            <div class="column" id="results">
+                <div class="clearfix resultsHead">
+                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+                    <h2 class="responseTitle" style="color:#fff">${$("#cityVal").val()}</h2>
+                </div>
+            </div>
+        </div>`);
         };
     });
 }
