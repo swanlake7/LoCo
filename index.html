@@ -39,8 +39,8 @@
     <section class="section">
         <div class="container">
             <form id="searchToggle">
-                <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band" />
-                <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city" />
+                  <img src="assets/img/musicLogo.png"  class="searchTopic btn" id="bandButton" value="band" >
+                   <img src="assets/img/city.png"  class="searchTopic btn" id="cityButton" value="city" >
             </form>
 
             <select class="select monthSelect" id="monthSelect">
@@ -109,6 +109,12 @@
                 $(".citySearch").css("display", "flex");
                 $(".monthSelect").css("display", "inline-block");
                 $("#bandSearch").css("display", "none");
+                $("#cityButton").css({
+                   "height": "50px"
+                });
+                $("#bandButton").css({
+                   "height": "40px"
+                });
                 $('#cityVal').focus();
 
             });
@@ -117,8 +123,12 @@
                 searchType = "band";
                 $(".citySearch,.monthSelect").css("display", "none");
                 $("#bandSearch").css("display", "flex");
+                $("#bandButton").css("height", "50px"};   
+                $("#cityButton").css("height", "40px");  
                 $('#bandVal').focus();
             });
+
+           
 
             //object for ajax
             $('#searchbtn').on("click", loCoSearch);
