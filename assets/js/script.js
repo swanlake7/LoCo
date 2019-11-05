@@ -44,6 +44,9 @@ function getEvents(searchParams, querySearch) {
 
             function buildResponse(response) {
                 console.log("build function" , response);
+                const eventId = response.events[0].id;
+                const searchreq = `searchreq-${eventId}`;
+                $("#ajaxResponse").prepend(`<div class="container ${searchreq}"></div>`);
                 for (let i = 0; i < response.events.length; i++) {
                     let eventLat = response.events[i].venue.location.lat;
                     let eventLon = response.events[i].venue.location.lon;
@@ -52,10 +55,10 @@ function getEvents(searchParams, querySearch) {
                  
 
                     const eventId = response.events[i].id;
-                    $("#ajaxResponse").prepend(`<div class="columns" id="event-${eventId}">
+                    $(`.${searchreq}`).append(`<div class="columns" id="event-${eventId}">
                 <div class="column" id="results">
                     <ul class="eventReturn">
-                        <li><h2>Title: ${response.events[i].title}</h2></li>
+                        <li><h2>${response.events[i].title}</h2></li>
                         <li>Type of event: ${response.events[i].type}</li>
                         <li>City: ${response.events[i].venue.city}</li>
                         <li>Venue: ${response.events[i].venue.name}</li>
@@ -81,9 +84,9 @@ function getEvents(searchParams, querySearch) {
 
                 //prepending an imag and name based on first returned values
 
-                 if (searchType == "band" && response.events[0].type == "concert" ){
+                 if (searchType == "band" && (response.events[0].type == "concert" || response.events[0].type == "music_festival")){
                      console.log("if");
-                    $('#ajaxResponse').prepend(`<div class="columns headRow">
+                    $(`.searchreq-${eventId}`).prepend(`<div class="columns headRow">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
                     <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
@@ -91,7 +94,7 @@ function getEvents(searchParams, querySearch) {
                 </div>
             </div>
         </div>`);
-                } else if (searchType == "band" && response.events[0].type !== "concert" ){
+                } else if (searchType == "band" && response.events[0].taxonomies[0].name == "sports" ){
                     console.log("else if");
                         $('#ajaxResponse').prepend(`<div class="columns headRow">
                 <div class="column" id="results">

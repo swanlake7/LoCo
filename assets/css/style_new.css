@@ -219,6 +219,11 @@ margin-bottom: .4em;
   margin-bottom: -32px;
 }
 
+#ajaxResponse .container {
+  width:100%;
+  max-width: 100%;
+}
+
 
 
 
