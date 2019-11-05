@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#searchMe").on("click", function(e){
+    $("#searchMe").on("click", function (e) {
         // e.preventDefault();
         // var searchBy = $("#searchBy").val();
         // var custResponse = $("#searchTerm").val();
@@ -12,32 +12,47 @@ $(document).ready(function () {
 
 });
 
-function getEvents (searchParams) {
+function getEvents(searchParams, querySearch) {
     const searchString = $.param(searchParams);
+    const emptySearch = $.param(querySearch);
     var cncrtLoctaion = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + searchString;
-  
-  console.log("qUrl: "+ cncrtLoctaion);
+
+    console.log("qUrl: " + cncrtLoctaion);
     $.ajax({
         url: cncrtLoctaion,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
-        
-        for (let i = 0; i < response.events.length; i++) {
-            let eventLat = response.events[i].venue.location.lat;
-            let eventLon = response.events[i].venue.location.lon;
-            let dateTime = response.events[i].datetime_local;
+        console.log("pre if");
+       // if band search has no results do a query search: console.log(response.events[0])
+        if (!response.events[0]) {
 
-            /* let wetArray = [];
-            let locationWet = {
-                long : eventLon,
-                lats : eventLat,
-            }
-            console.log(locationWet);
-            wetArray.push(locationWet); */
+            var emptyLocation = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + emptySearch;
+            console.log("empty" , emptyLocation);
+            $.ajax({
+                url: emptyLocation,
+                method: "GET"
+            }).then(function(response){
+                console.log("in if",response);
+
+            buildResponse(response);
+            });
+        } else {
+            //band search
+            buildResponse(response);
+        };
+        
+
+            function buildResponse(response) {
+                console.log("build function" , response);
+                for (let i = 0; i < response.events.length; i++) {
+                    let eventLat = response.events[i].venue.location.lat;
+                    let eventLon = response.events[i].venue.location.lon;
+                    let dateTime = response.events[i].datetime_local;
             
-            const eventId = response.events[i].id;
-            $("#ajaxResponse").prepend(`<div class="columns" id="event-${eventId}">
+                 
+
+                    const eventId = response.events[i].id;
+                    $("#ajaxResponse").prepend(`<div class="columns" id="event-${eventId}">
                 <div class="column" id="results">
                     <ul class="eventReturn">
                         <li><h2>Title: ${response.events[i].title}</h2></li>
@@ -50,33 +65,45 @@ function getEvents (searchParams) {
                     </ul>
                 </div>
             </div>`);
-            
-          /*   $("#results").append("<ul>").addClass("eventReturn");
-            $(".eventReturn").append("<li>Title: " + response.events[i].title + "</li>");
-            $(".eventReturn").append("<li>Type of Event: " + response.events[i].type + "</li>");
-            $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
-            $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
-            
-            getWeather(eventLat, eventLon, dateTime)
-                .then(function (weatherResponse) {
-                    renderWeatherData(weatherResponse, eventId);
-                });
 
-        }
+                    /*   $("#results").append("<ul>").addClass("eventReturn");
+                      $(".eventReturn").append("<li>Title: " + response.events[i].title + "</li>");
+                      $(".eventReturn").append("<li>Type of Event: " + response.events[i].type + "</li>");
+                      $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
+                      $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
 
-        //prepending an imag and name based on first returned values
-        
-        if (searchType == "band") {
-        $('#ajaxResponse').prepend(`<div class="columns headRow">
+                    getWeather(eventLat, eventLon, dateTime)
+                        .then(function (weatherResponse) {
+                            renderWeatherData(weatherResponse, eventId);
+                        });
+
+                }
+
+                //prepending an imag and name based on first returned values
+
+                 if (searchType == "band" && response.events[0].type == "concert" ){
+                     console.log("if");
+                    $('#ajaxResponse').prepend(`<div class="columns headRow">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
-                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
                     <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
                 </div>
             </div>
         </div>`);
-        } else {
-        $('#ajaxResponse').prepend(`<div class="columns headRow"">
+                } else if (searchType == "band" && response.events[0].type !== "concert" ){
+                    console.log("else if");
+                        $('#ajaxResponse').prepend(`<div class="columns headRow">
+                <div class="column" id="results">
+                    <div class="clearfix resultsHead">
+                        <h2 class="responseTitle" style="color:#fff">${$("#bandVal").val()}</h2>    
+                        ${"" /*<img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />*/}
+                        
+                    </div>
+                </div>
+            </div>`);
+                } else { console.log("else");
+                    $('#ajaxResponse').prepend(`<div class="columns headRow"">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
                     <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
@@ -84,6 +111,9 @@ function getEvents (searchParams) {
                 </div>
             </div>
         </div>`);
+                }; 
+                $('#cityVal').val('');
+                $('#bandVal').val('')
         };
     });
-}
+};

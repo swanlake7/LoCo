@@ -105,7 +105,9 @@
         $(document).ready(function () {
             $('#bandVal').focus();
 
+            //set initial search type
             searchType = "band";
+// toggle
             $("#cityButton").on("click", function () {
                 searchType = "place";
                 $(".citySearch").css("display", "flex");
@@ -149,12 +151,14 @@
             function loCoSearch(e) {
                 //e.preventDefault();
                 let searchParams = {};
+                let querySearch = {q:$('#bandVal').val().replace(/\s+/g, '-')};
+             //   querySearch[q] = $('#bandVal').val().replace(/\s+/g, '-') ;
+
                 if (searchType == "band") {
                     //search by band
                     let searchQ = $('#bandVal').val().replace(/\s+/g, '-');
                     console.log("sQ: " + searchQ);
                     searchParams["performers.slug"] = searchQ;
-                    $('#bandVal').val('')
                 } else {
                     //search by city and month
                     let date = new Date();
@@ -180,10 +184,12 @@
                     // console.log("monthSelect " + $('#monthSelect').val());
                 }
 
-                getEvents(searchParams);
-                $('#cityVal').val('');
-                return searchType
-            };
+
+            getEvents(searchParams, querySearch);
+
+            return searchType
+        };
+
 
 
 
