@@ -27,7 +27,7 @@ function renderWeatherData(weather, eventId) {
 
     current.temperature = weather.temperature;
     current.summary = weather.summary;
-    current.humidity = weather.humidity;
+    current.humidity = weather.humidity *100 + "%";
     current.precipProbability = weather.precipProbability;
     current.icon = weather.icon;
 
