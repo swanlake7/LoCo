@@ -141,6 +141,9 @@
             function loCoSearch(e) {
                 //e.preventDefault();
                 let searchParams = {};
+                let querySearch = {};
+                querySearch[q] = $('#bandVal').val().replace(/\s+/g, '-') ;
+
                 if (searchType == "band") {
                     //search by band
                     let searchQ = $('#bandVal').val().replace(/\s+/g, '-');
@@ -172,7 +175,7 @@
                 // console.log("monthSelect " + $('#monthSelect').val());
             }
 
-            getEvents(searchParams);
+            getEvents(searchParams, querySearch);
             $('#cityVal').val('');
             return searchType
         };
