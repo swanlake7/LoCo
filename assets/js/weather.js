@@ -10,7 +10,7 @@ function getWeather(latitude, longitude, datetime_local) {
         url: queryURlWeather,
         method: "GET"
     }).then(function (response) {
-        return response.currently;
+        return response.daily.data[0];
     });
 };
 
@@ -18,17 +18,19 @@ function renderWeatherData(weather, eventId) {
 
     let current = {
         summary: "",
-        temperature: "",
+        temperatureHigh: "",
+        temperatureLow: "",
         humidity: "",
         precipProbability: "",
         icon: ""
     }
 
 
-    current.temperature = weather.temperature;
+    current.temperatureHigh = weather.apparentTemperatureHigh;
+    current.temperatureLow = weather.apparentTemperatureLow;
     current.summary = weather.summary;
-    current.humidity = weather.humidity *100 + "%";
-    current.precipProbability = weather.precipProbability;
+    current.humidity = Math.floor(weather.humidity*100) + "%";
+    current.precipProbability = Math.floor(weather.precipProbability *100) + "%";
     current.icon = weather.icon;
 
 
@@ -42,9 +44,10 @@ function renderWeatherData(weather, eventId) {
     $(`#event-${eventId}`).append(`<div class="column" id="weatherResults">
         <ul>
             <li>${current.summary}</li>
-            <li>Current Temperature: ${current.temperature} F</li>
-            <li>Current Humidity: ${current.humidity}</li>
-            <li>Chance of Raing: ${current.precipProbability}</li>
+            <li>Temperature High: ${current.temperatureHigh} F</li>
+            <li>Temperature Low: ${current.temperatureLow} F</li>
+            <li>Humidity: ${current.humidity}</li>
+            <li>Chance of Rain: ${current.precipProbability}</li>
         </ul>   
     </div>`);
       // For testing:

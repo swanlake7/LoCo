@@ -26,6 +26,8 @@ function getEvents (searchParams) {
         for (let i = 0; i < response.events.length; i++) {
             let eventLat = response.events[i].venue.location.lat;
             let eventLon = response.events[i].venue.location.lon;
+            let dateTime = response.events[i].datetime_local;
+
             /* let wetArray = [];
             let locationWet = {
                 long : eventLon,
@@ -55,7 +57,7 @@ function getEvents (searchParams) {
             $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
             $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
             
-            getWeather(eventLat, eventLon)
+            getWeather(eventLat, eventLon, dateTime)
                 .then(function (weatherResponse) {
                     renderWeatherData(weatherResponse, eventId);
                 });
