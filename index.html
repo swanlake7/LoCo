@@ -8,6 +8,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://maxdow.github.io/skycons/skycons.js"></script>
     <script type="text/javascript" src="assets/js/weather.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
 
@@ -39,8 +40,8 @@
     <section class="section">
         <div class="container">
             <form id="searchToggle">
-                  <img src="assets/img/musicLogo.png"  class="searchTopic btn" id="bandButton" value="band" >
-                   <img src="assets/img/city.png"  class="searchTopic btn" id="cityButton" value="city" >
+                <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band">
+                <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city">
             </form>
 
             <select class="select monthSelect" id="monthSelect">
@@ -90,15 +91,15 @@
 
     <section class="section">
         <div class="container" id="ajaxResponse">
-
-
-
+        
+<!-- <canvas id="icon1" width="128" height="128"></canvas> -->
 
 
         </div>
     </section>
 
     <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://maxdow.github.io/skycons/skycons.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#bandVal').focus();
@@ -110,10 +111,10 @@
                 $(".monthSelect").css("display", "inline-block");
                 $("#bandSearch").css("display", "none");
                 $("#cityButton").css({
-                   "height": "50px"
+                    "height": "50px"
                 });
                 $("#bandButton").css({
-                   "height": "40px"
+                    "height": "40px"
                 });
                 $('#cityVal').focus();
 
@@ -123,12 +124,18 @@
                 searchType = "band";
                 $(".citySearch,.monthSelect").css("display", "none");
                 $("#bandSearch").css("display", "flex");
-                $("#bandButton").css("height", "50px");   
-                $("#cityButton").css("height", "40px");  
+                $("#bandButton").css("height", "50px");
+                $("#cityButton").css("height", "40px");
                 $('#bandVal').focus();
             });
 
-           
+
+
+            // var skycons = new Skycons({ "color": "black" });
+            // you can add a canvas by it's ID...
+            // skycons.add("icon1", "rainy");
+            // start animation!
+
 
             //object for ajax
             $('#searchbtn').on("click", loCoSearch);
@@ -159,23 +166,23 @@
 
                     searchParams["venue.city"] = $('#cityVal').val().replace(/\s+/g, '-');
 
-                    if ($('#monthSelect') > 0) { 
-                    if ($('#monthSelect').val() < monthCurrent) {
-                        thisYear += 1;
-                        searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
-                    } else {
-                        searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                    if ($('#monthSelect') > 0) {
+                        if ($('#monthSelect').val() < monthCurrent) {
+                            thisYear += 1;
+                            searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                        } else {
+                            searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
 
-                    };
+                        };
+                    }
+                    // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
+                    // console.log("monthSelect " + $('#monthSelect').val());
                 }
-                // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                // console.log("monthSelect " + $('#monthSelect').val());
-            }
 
-            getEvents(searchParams);
-            $('#cityVal').val('');
-            return searchType
-        };
+                getEvents(searchParams);
+                $('#cityVal').val('');
+                return searchType
+            };
 
 
 
