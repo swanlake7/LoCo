@@ -123,15 +123,24 @@
                     searchParams["performers.slug"] = searchQ;
                 } else {
                     //search by city and month
-
-                    let thisYear = new Date().getFullYear();
-                    let lastDay = new Date().setFullYear(thisYear, $('#monthSelect').val(), 0);
-                    console.log(lastDay);
+                    let date = new Date();
+                    let thisYear = date.getFullYear();
+                    let monthCurrent = date.getMonth();
+                    let lastDay = new Date(thisYear, $('#monthSelect').val(), 0);
+                    lastDay = lastDay.getDate();
+                    console.log("monthC" + monthCurrent);
+                    console.log("lastDay" + lastDay);
 
                     searchParams["venue.city"] = $('#cityVal').val();
+                  if ( $('#monthSelect').val() < monthCurrent ) {
+                      thisYear += 1;
                     searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
-                   // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                    console.log("month " + $('#monthSelect').val());
+
+                  } else {
+                    searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                };
+                    // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
+                    console.log("monthSelect " + $('#monthSelect').val());
                 }
 
                 getEvents(searchParams);
