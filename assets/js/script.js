@@ -22,28 +22,34 @@ function getEvents(searchParams, querySearch) {
         url: cncrtLoctaion,
         method: "GET"
     }).then(function (response) {
-        if (response === []) {
+        console.log("pre if");
+       // if band search has no results do a query search: console.log(response.events[0])
+        if (!response.events[0]) {
+
             var emptyLocation = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + emptySearch;
+            console.log("empty" , emptyLocation);
             $.ajax({
                 url: emptyLocation,
                 method: "GET"
-            }).then(buildResponse(response));
-            console.log(response);
-        }
-        buildResponse(response);
-            function buildResponse() {
+            }).then(function(response){
+                console.log("in if",response);
+
+            buildResponse(response);
+            });
+        } else {
+            //band search
+            buildResponse(response);
+        };
+        
+
+            function buildResponse(response) {
+                console.log("build function" , response);
                 for (let i = 0; i < response.events.length; i++) {
                     let eventLat = response.events[i].venue.location.lat;
                     let eventLon = response.events[i].venue.location.lon;
                     let dateTime = response.events[i].datetime_local;
-
-                    /* let wetArray = [];
-                    let locationWet = {
-                        long : eventLon,
-                        lats : eventLat,
-                    }
-                    console.log(locationWet);
-                    wetArray.push(locationWet); */
+            
+                 
 
                     const eventId = response.events[i].id;
                     $("#ajaxResponse").prepend(`<div class="columns" id="event-${eventId}">
@@ -75,16 +81,28 @@ function getEvents(searchParams, querySearch) {
 
                 //prepending an imag and name based on first returned values
 
-                if (searchType == "band") {
+                 if (searchType == "band" && response.events[0].type == "concert" ){
+                     console.log("if");
                     $('#ajaxResponse').prepend(`<div class="columns headRow">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
-                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
                     <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
+                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
                 </div>
             </div>
         </div>`);
-                } else {
+                } else if (searchType == "band" && response.events[0].type !== "concert" ){
+                    console.log("else if");
+                        $('#ajaxResponse').prepend(`<div class="columns headRow">
+                <div class="column" id="results">
+                    <div class="clearfix resultsHead">
+                        <h2 class="responseTitle" style="color:#fff">${$("#bandVal").val()}</h2>    
+                        ${"" /*<img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />*/}
+                        
+                    </div>
+                </div>
+            </div>`);
+                } else { console.log("else");
                     $('#ajaxResponse').prepend(`<div class="columns headRow"">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
@@ -93,7 +111,9 @@ function getEvents(searchParams, querySearch) {
                 </div>
             </div>
         </div>`);
-                };
+                }; 
+                $('#cityVal').val('');
+                $('#bandVal').val('')
         };
     });
 };
