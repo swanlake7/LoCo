@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    <div id="backgroundImage"></div>
     <header class="header">
         <div class="container">
             <div class="columns">
@@ -62,13 +63,15 @@
                 <div class="column">
                     <div class="columns bandCol">
                         <div class="column" id="bandSearch">
-                            <input type="text" class="search" id="bandVal" placeholder="Band"></input>
+                            <input onfocus="this.value=''" type="text" class="search" id="bandVal"
+                                placeholder="Band"></input>
                         </div>
                     </div>
                     <div class="columms">
                         <div class="columns">
                             <div class="column citySearch" id="citySearch">
-                                <input type=" text" class="search" id="cityVal" placeholder="City"></input>
+                                <input onfocus="this.value=''" type=" text" class="search" id="cityVal"
+                                    placeholder="City"></input>
                             </div>
                         </div>
                     </div>
@@ -87,10 +90,10 @@
 
     <section class="section">
         <div class="container" id="ajaxResponse">
-            
 
-                
-                
+
+
+
 
         </div>
     </section>
@@ -120,9 +123,9 @@
             //object for ajax
             $('#searchbtn').on("click", loCoSearch);
             document.onkeydown = function (e) {
-               // console.log("evaluating");
+                // console.log("evaluating");
                 if (e.key == "Enter")
-                loCoSearch();
+                    loCoSearch();
             };
 
             function loCoSearch(e) {
@@ -133,6 +136,7 @@
                     let searchQ = $('#bandVal').val().replace(/\s+/g, '-');
                     console.log("sQ: " + searchQ);
                     searchParams["performers.slug"] = searchQ;
+                    $('#bandVal').val('')
                 } else {
                     //search by city and month
                     let date = new Date();
@@ -141,23 +145,27 @@
                     let lastDay = new Date(thisYear, $('#monthSelect').val(), 0);
                     lastDay = lastDay.getDate();
                     //console.log("monthC" + monthCurrent);
-                   // console.log("lastDay" + lastDay);
+                    // console.log("lastDay" + lastDay);
 
-                    searchParams["venue.city"] = $('#cityVal').val();
-                  if ( $('#monthSelect').val() < monthCurrent ) {
-                      thisYear += 1;
-                    searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                    searchParams["venue.city"] = $('#cityVal').val().replace(/\s+/g, '-');
 
-                  } else {
-                    searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
-                };
-                    // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                   // console.log("monthSelect " + $('#monthSelect').val());
+                    if ($('#monthSelect') > 0) { 
+                    if ($('#monthSelect').val() < monthCurrent) {
+                        thisYear += 1;
+                        searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+                    } else {
+                        searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
+
+                    };
                 }
+                // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
+                // console.log("monthSelect " + $('#monthSelect').val());
+            }
 
-                getEvents(searchParams);
-                return searchType
-            };
+            getEvents(searchParams);
+            $('#cityVal').val('');
+            return searchType
+        };
 
 
 
