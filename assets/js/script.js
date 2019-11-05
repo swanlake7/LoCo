@@ -22,7 +22,8 @@ function getEvents (searchParams) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        for (i = 0; i < response.events.length; i++) {
+        
+        for (let i = 0; i < response.events.length; i++) {
             let eventLat = response.events[i].venue.location.lat;
             let eventLon = response.events[i].venue.location.lon;
             /* let wetArray = [];
@@ -33,15 +34,20 @@ function getEvents (searchParams) {
             console.log(locationWet);
             wetArray.push(locationWet); */
             
-            $("#results").prepend(`<ul class="eventReturn">
-            <li><h2>Title: ${response.events[i].title}</h2></li>
-            <li>Type of event: ${response.events[i].type}</li>
-            <li>City: ${response.events[i].venue.city}</li>
-            <li>Venue: ${response.events[i].venue.name}</li>
-            <li>Date: ${response.events[i].datetime_local}</li>
-            <li><a href="${response.events[i].url}">Tickets Page</a></li>
-            <li>Average Price: $${response.events[i].stats.average_price}</li>
-            </ul>`)
+            const eventId = response.events[i].id;
+            $("#ajaxResponse").prepend(`<div class="columns" id="event-${eventId}">
+                <div class="column" id="results">
+                    <ul class="eventReturn">
+                        <li><h2>Title: ${response.events[i].title}</h2></li>
+                        <li>Type of event: ${response.events[i].type}</li>
+                        <li>City: ${response.events[i].venue.city}</li>
+                        <li>Venue: ${response.events[i].venue.name}</li>
+                        <li>Date: ${response.events[i].datetime_local}</li>
+                        <li><a href="${response.events[i].url}">Tickets Page</a></li>
+                        <li>Average Price: $${response.events[i].stats.average_price}</li>
+                    </ul>
+                </div>
+            </div>`);
             
           /*   $("#results").append("<ul>").addClass("eventReturn");
             $(".eventReturn").append("<li>Title: " + response.events[i].title + "</li>");
@@ -49,9 +55,12 @@ function getEvents (searchParams) {
             $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
             $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
             
-            getWeather(eventLat, eventLon);
+            getWeather(eventLat, eventLon)
+                .then(function (weatherResponse) {
+                    renderWeatherData(weatherResponse, eventId);
+                });
 
-        };
+        }
 
         //prepending an imag and name based on first returned values
         
