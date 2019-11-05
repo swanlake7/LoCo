@@ -76,7 +76,7 @@
                 </div>
                 <div class="column is-narrow has-text-centered">
 
-                    <button id="searchbtn" class="btn">Search</button>
+                    <input id="searchbtn" class="btn" type="submit" value="Search">
 
                 </div>
             </div>
@@ -98,23 +98,35 @@
     <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script type="text/javascript">
         $(document).ready(function () {
+            $('#bandVal').focus();
+
             searchType = "band";
             $("#cityButton").on("click", function () {
                 searchType = "place";
                 $(".citySearch").css("display", "flex");
                 $(".monthSelect").css("display", "inline-block");
                 $("#bandSearch").css("display", "none");
+                $('#cityVal').focus();
+
             });
 
             $("#bandButton").on("click", function () {
                 searchType = "band";
                 $(".citySearch,.monthSelect").css("display", "none");
                 $("#bandSearch").css("display", "flex");
+                $('#bandVal').focus();
             });
 
             //object for ajax
-            $('#searchbtn').on("click", function (e) {
-                e.preventDefault();
+            $('#searchbtn').on("click", loCoSearch);
+            document.onkeydown = function (e) {
+               // console.log("evaluating");
+                if (e.key == "Enter")
+                loCoSearch();
+            };
+
+            function loCoSearch(e) {
+                //e.preventDefault();
                 let searchParams = {};
                 if (searchType == "band") {
                     //search by band
@@ -128,8 +140,8 @@
                     let monthCurrent = date.getMonth();
                     let lastDay = new Date(thisYear, $('#monthSelect').val(), 0);
                     lastDay = lastDay.getDate();
-                    console.log("monthC" + monthCurrent);
-                    console.log("lastDay" + lastDay);
+                    //console.log("monthC" + monthCurrent);
+                   // console.log("lastDay" + lastDay);
 
                     searchParams["venue.city"] = $('#cityVal').val();
                   if ( $('#monthSelect').val() < monthCurrent ) {
@@ -140,12 +152,12 @@
                     searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
                 };
                     // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                    console.log("monthSelect " + $('#monthSelect').val());
+                   // console.log("monthSelect " + $('#monthSelect').val());
                 }
 
                 getEvents(searchParams);
                 return searchType
-            });
+            };
 
 
 
