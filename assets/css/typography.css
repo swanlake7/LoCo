@@ -4,7 +4,8 @@
 /* check the caption styles if needed */
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     font-size: .875rem;
     line-height: 1.4;
    }
