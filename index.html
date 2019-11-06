@@ -14,11 +14,8 @@
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/bulma.min.css"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/typography.css">
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <link rel="stylesheet" href="assets/css/style_new.css">
 
 
@@ -43,8 +40,6 @@
             <form id="searchToggle">
                 <div id="bandButton" value="band"></div>
                 <div id="cityButton" value="city"></div>
-                <!-- <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band"> -->
-                <!-- <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city"> -->
             </form>
 
             <select class="select monthSelect" id="monthSelect">
@@ -120,8 +115,6 @@
                 $("#bandSearch").css("display", "none");
                 $('#bandButton').css({"background-position-y":"15px","background-size":"50px auto"});
                 $('#cityButton').css({"background-position-y":"-65px","background-size":"65px auto","background-position-x": "0px"});
-                // $("#cityButton").css({"height": "50px"});
-                // $("#bandButton").css({"height": "40px"});
                 $('#cityVal').focus();
 
             });
@@ -137,8 +130,6 @@
                 $("#bandSearch").css("display", "flex");
                 $('#cityButton').css({"background-position-y":"15px","background-size":"50px auto","background-position-x":"5px"});
                 $('#bandButton').css({"background-position-y":"-65px","background-size":"65px auto"});
-                // $("#bandButton").css("height", "50px");
-                // $("#cityButton").css("height", "40px");
                 $('#bandVal').focus();
             });
 
@@ -176,12 +167,12 @@
                     let monthCurrent = date.getMonth();
                     let lastDay = new Date(thisYear, $('#monthSelect').val(), 0);
                     lastDay = lastDay.getDate();
-                    //console.log("monthC" + monthCurrent);
+                    console.log("monthC" + monthCurrent);
                     // console.log("lastDay" + lastDay);
 
                     searchParams["venue.city"] = $('#cityVal').val().replace(/\s+/g, '-');
 
-                    if ($('#monthSelect') > 0) {
+                    if ($('#monthSelect').val() > 0) {
                         if ($('#monthSelect').val() < monthCurrent) {
                             thisYear += 1;
                             searchParams["datetime_local.gte"] = `${thisYear}-${$('#monthSelect').val()}-01`;
@@ -191,7 +182,6 @@
                         };
                     }
                     // searchParams["datetime_local.lte"] = `${thisYear}-${$('#monthSelect').val()}-31`;
-                    // console.log("monthSelect " + $('#monthSelect').val());
                 }
 
 

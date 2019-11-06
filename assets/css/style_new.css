@@ -87,7 +87,7 @@ a {
     transition: all .03s;
 }
 
-/* ios submit cancel */
+/* ios submit style cancel */
 input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -104,19 +104,6 @@ input[type=submit] {
     background: rgba(196, 196, 196, 0.4); 
     text-shadow: none; 
 }
-
-/* #cityButton:hover {
-  box-shadow: rgb(124, 124, 124) 0px 0px 15px 15px;
-    text-shadow: 15px 15px .5em rgb(26, 66, 85); 
-    transition: all .03s;
-}
-
-#bandButton:hover{
-  box-shadow: rgb(124, 124, 124) 0px 0px 15px 15px;
-    text-shadow: 15px 15px .5em rgb(26, 66, 85);  
-    transition: all .03s;
-} */
-
 
 #bandButton, #cityButton {
   margin-right: 30px;
@@ -143,8 +130,6 @@ input[type=submit] {
 }
 
 #bandButton:hover, #cityButton:hover {
-  /* background-size: 65px auto; */
-  /* background-position-y: top; */
   border-radius: 5em;
   border:1px dotted white;
 }
@@ -183,14 +168,12 @@ input[type=submit] {
 }
 
 .select {
-  /* background: rgba(128, 128, 128, .2); */
   background: rgba(65, 65, 65, 0.2);
   border: 1px rgb(94, 94, 94) solid;
   color: white;
   border-radius: .5rem;  
   font-size:1.1em;
   margin-left: 80px;
-  /* margin:0 auto; */
 }
 
 option {
@@ -210,15 +193,11 @@ option {
 events results
 */
 #results, #weatherResults {
-  /* background-color:rgba(238, 238, 238, 0.39); */
   color:rgb(40, 40, 40);
   font-size:1rem;
   padding-top:1rem;
   border-radius: .5rem;
 }
-
-/* #results {  margin-left: 1em; margin-right:.6em;}
-#weatherResults {margin-right: 1em; margin-left:.6em;} */
 
 #results ul, #weatherResults ul {
   background-color: rgba(200,200,200,.8);
@@ -226,15 +205,12 @@ events results
   margin-bottom:1em;
   padding-bottom: 1.1em;
   padding-top: 1em;
-  /* border-bottom:1px solid white; */
-  /* padding-bottom:.5em; */
 }
 
 #results li, #weatherResults li {
   padding-left: 1.5em;
   box-sizing: border-box;
   line-height: 1.6;
-  /* border-radius: .25em; */
 }
 li h2 {
   font-size: 1.85em;
@@ -242,13 +218,6 @@ line-height: 1.2;
 font-weight: 900;
 margin-bottom: .4em;
 }
-/* #results ul:nth-of-type(even) {
-  background-color:rgba(238, 238, 238, 0.492);
-} */
-/* #results ul:nth-child(even) {
-  background-color:rgba(238, 238, 238, 0.492);
-
-} */
 
 #results h2.responseTitle {
   color:white;
