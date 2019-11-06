@@ -63,7 +63,7 @@ function getEvents(searchParams, querySearch) {
                         <li>City: ${response.events[i].venue.city}</li>
                         <li>Venue: ${response.events[i].venue.name}</li>
                         <li>Date: ${response.events[i].datetime_local}</li>
-                        <li><a href="${response.events[i].url}">Tickets Page</a></li>
+                        <li><a href="${response.events[i].url}" target="_blank"  >Tickets Page</a></li>
                         <li>Average Price: $${response.events[i].stats.average_price}</li>
                     </ul>
                 </div>
