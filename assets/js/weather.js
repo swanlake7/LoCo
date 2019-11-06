@@ -38,9 +38,7 @@ function renderWeatherData(weather, eventId) {
 
     console.log(current);
 
-    // removed from output temporarily: <li><img src="${current.icon}" /></li>
-
-  //getWeather(42.3601, -71.0589, '2019-11-04T03:30:00');
+  
 
   // in template literal below, you need to add a canvas element for the skycon
 
