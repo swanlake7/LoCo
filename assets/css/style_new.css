@@ -41,23 +41,45 @@ a {
     left: 3em;
     padding-bottom:1.5em;
   }
+/* Search bottons row */
+  .searchbtns {
+    padding:.25rem;
+  }
+  .searchbtns > .columns:first-of-type{
+    margin-top:-.3rem;
+  }
+  .searchbtns > .columns:last-of-type {
+    margin-top:-1.8rem;
+  }
 
   .btn {
     cursor: pointer;
   }
   
-  #searchbtn, .search {
+  #searchbtn, #clearbtn, .search {
     border-radius: .5rem;
     height:3.5rem;
     font-size: 2.75rem;
   }
 
-  #searchbtn {
+  #searchbtn, #clearbtn {
     background: rgba(128, 128, 128, .2);
     border: 1px rgb(94, 94, 94) solid;
     color: white;
-    padding: .1em 1em 1.5em;
+    padding: .2rem 1rem 1.6rem;
+    font-size:1.35em;
+    height:1.5rem;
+    display:block;
   }
+#searchbtn {
+  margin-top:.5rem;
+}
+
+#clearbtn {
+  padding-left:1.25em;
+  padding-right:1.25em;
+  margin-top:.7rem;
+}
 
 .btn:hover {
     box-shadow: rgb(124, 124, 124) 0px 0px 15px 2px;
@@ -76,7 +98,7 @@ input[type=submit] {
 
 }
 
-#searchbtn:active {
+#searchbtn:active, #clearbtn:active {
     transform: translate(1px, 1px);
     color:rgb(36, 36, 36);
     background: rgba(196, 196, 196, 0.4); 
@@ -126,6 +148,7 @@ input[type=submit] {
 
 .container {
       max-width: 80%;
+      width: 960px;
   }
 
 .citySearch, .monthSelect{
@@ -202,6 +225,7 @@ margin-bottom: .4em;
 #results h2.responseTitle {
   color:white;
   font-size: 3em;
+  text-transform: capitalize;
 }
 
 .resultImg {
@@ -219,11 +243,23 @@ margin-bottom: .4em;
   margin-bottom: -32px;
 }
 
+#ajaxResponse .container {
+  width:100%;
+  max-width: 100%;
+}
 
 
+@media only screen and (max-width:769px) {
+  #searchbtn, #clearbtn {
+    display:inline-block;
+    font-size:1.8em;
+    padding-bottom: 2.2rem;
+  }
+}
 
 @media only screen and (max-width:550px) {
   .container {
     max-width: 90vw;
   }
+ 
 }
