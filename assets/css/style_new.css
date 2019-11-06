@@ -66,17 +66,19 @@ a {
     background: rgba(128, 128, 128, .2);
     border: 1px rgb(94, 94, 94) solid;
     color: white;
-    padding: .1em 1em 1.5em;
+    padding: .2rem 1rem 1.6rem;
     font-size:1.35em;
     height:1.5rem;
+    display:block;
   }
 #searchbtn {
-
+  margin-top:.5rem;
 }
 
 #clearbtn {
-  padding-left:1.35em;
-  padding-right:1.35em;
+  padding-left:1.25em;
+  padding-right:1.25em;
+  margin-top:.7rem;
 }
 
 .btn:hover {
@@ -250,5 +252,10 @@ margin-bottom: .4em;
 @media only screen and (max-width:550px) {
   .container {
     max-width: 90vw;
+  }
+  #searchbtn, #clearbtn {
+    display:inline-block;
+    font-size:1.8em;
+    padding-bottom: 2.2rem;
   }
 }
