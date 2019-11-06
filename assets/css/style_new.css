@@ -122,6 +122,24 @@ input[type=submit] {
   margin-right: 30px;
 }
 
+#bandButton, #cityButton {
+  background-size: 50px auto;
+  background-position-y: 15px;
+  width:65px;
+  height:65px;
+  background-repeat: no-repeat;
+}
+
+#bandButton {background-image: url(../img/guitarsico.svg);float:left;}
+#cityButton {background-image: url(../img/pinsico.svg);position: relative;left:85px;}
+
+#bandButton:hover, #cityButton:hover {
+  width: 65px;
+  height: 65px;
+  background-size: 65px auto;
+  background-position-y: top;
+}
+
 #searchInputs {
   margin-top: .1rem;
 }
@@ -162,6 +180,7 @@ input[type=submit] {
   color: white;
   border-radius: .5rem;  
   font-size:1.1em;
+  margin-left: 80px;
   /* margin:0 auto; */
 }
 

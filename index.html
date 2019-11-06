@@ -41,8 +41,10 @@
     <section class="section">
         <div class="container">
             <form id="searchToggle">
-                <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band">
-                <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city">
+                <div id="bandButton" value="band"></div>
+                <div id="cityButton" value="city"></div>
+                <!-- <img src="assets/img/musicLogo.png" class="searchTopic btn" id="bandButton" value="band"> -->
+                <!-- <img src="assets/img/city.png" class="searchTopic btn" id="cityButton" value="city"> -->
             </form>
 
             <select class="select monthSelect" id="monthSelect">
@@ -103,7 +105,6 @@
         </div>
     </section>
 
-    <!-- Already included in head <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="https://maxdow.github.io/skycons/skycons.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -117,12 +118,10 @@
                 $(".citySearch").css("display", "flex");
                 $(".monthSelect").css("display", "inline-block");
                 $("#bandSearch").css("display", "none");
-                $("#cityButton").css({
-                    "height": "50px"
-                });
-                $("#bandButton").css({
-                    "height": "40px"
-                });
+                $('#bandButton').css({"background-position-y":"15px","background-size":"50px auto"});
+                $('#cityButton').css({"background-position-y":"-65px","background-size":"65px auto"});
+                // $("#cityButton").css({"height": "50px"});
+                // $("#bandButton").css({"height": "40px"});
                 $('#cityVal').focus();
 
             });
@@ -136,8 +135,10 @@
                 searchType = "band";
                 $(".citySearch,.monthSelect").css("display", "none");
                 $("#bandSearch").css("display", "flex");
-                $("#bandButton").css("height", "50px");
-                $("#cityButton").css("height", "40px");
+                $('#cityButton').css({"background-position-y":"15px","background-size":"50px auto"});
+                $('#bandButton').css({"background-position-y":"-65px","background-size":"65px auto"});
+                // $("#bandButton").css("height", "50px");
+                // $("#cityButton").css("height", "40px");
                 $('#bandVal').focus();
             });
 
