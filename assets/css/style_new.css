@@ -226,6 +226,8 @@ margin-bottom: .4em;
   color:white;
   font-size: 3em;
   text-transform: capitalize;
+  float: left;
+  margin-right: 1rem;
 }
 
 .resultImg {

@@ -89,8 +89,8 @@ function getEvents(searchParams, querySearch) {
                     $(`.searchreq-${eventId}`).prepend(`<div class="columns headRow">
             <div class="column" id="results">
                 <div class="clearfix resultsHead">
-                    <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
                     <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+                    <h2 class="responseTitle" style="color:#fff">${response.events[0].performers[0].name}</h2>
                 </div>
             </div>
         </div>`);
