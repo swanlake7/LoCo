@@ -79,9 +79,17 @@
                     </div>
 
                 </div>
-                <div class="column is-narrow has-text-centered">
-
-                    <input id="searchbtn" class="btn" type="submit" value="Search">
+                <div class="column is-narrow has-text-centered searchbtns">
+                    <div class="columns">
+                        <div class="column is-narrow has-text-centered ">
+                            <input id="searchbtn" class="btn" type="submit" value="Search">
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-narrow has-text-centered">
+                            <button id="clearbtn" class="btn">Clear</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -121,6 +129,11 @@
                 });
                 $('#cityVal').focus();
 
+            });
+
+            $("#clearbtn").on("click", function() {
+                console.log("empty");
+                $('#ajaxResponse').empty();
             });
 
             $("#bandButton").on("click", function () {
