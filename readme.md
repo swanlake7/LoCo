@@ -12,3 +12,10 @@ All this needed to be simple and uncluttered in an effort to provide a better mo
 ### Technology
 Built with JS / JQuery, a slew of css, API from Dark SKy and Seat Geek.  
 The front end JS was kept in the index file to pass to our events generating JS file. Location information was passed from the event API to the weather API query in order to pull data pairs and ensure mobile readable collapsing of columns. JS was kept compartmentalized to help reduced merge conflicts during development leading to initial deployment.
+
+### Assignments
+• Dave - Project managing, fullstack working with Pearl and helping backend with Bradley.  
+• Bradley - Back end utilizing APIs from both Seat Geek and Dark Sky.  
+• Pearl - Front end Designer.  
+• Alexis - Back end Weather API using Dark Sky.  
+
