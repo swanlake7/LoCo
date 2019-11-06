@@ -148,6 +148,7 @@ input[type=submit] {
 
 .container {
       max-width: 80%;
+      width: 960px;
   }
 
 .citySearch, .monthSelect{
@@ -248,15 +249,17 @@ margin-bottom: .4em;
 }
 
 
-
-
-@media only screen and (max-width:550px) {
-  .container {
-    max-width: 90vw;
-  }
+@media only screen and (max-width:769px) {
   #searchbtn, #clearbtn {
     display:inline-block;
     font-size:1.8em;
     padding-bottom: 2.2rem;
   }
+}
+
+@media only screen and (max-width:550px) {
+  .container {
+    max-width: 90vw;
+  }
+ 
 }
