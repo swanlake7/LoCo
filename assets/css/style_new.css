@@ -228,7 +228,8 @@ margin-bottom: .4em;
 }
 
 .resultImg {
-  width: 100px;
+  height:65px;
+  /* width: 100px; */
   float: left;
   padding-right:1rem;
 }
@@ -239,7 +240,7 @@ margin-bottom: .4em;
 
 .columns.headRow {
   padding-bottom: 0;
-  margin-bottom: -32px;
+  margin-bottom: -1.75rem;
 }
 
 #ajaxResponse .container {
