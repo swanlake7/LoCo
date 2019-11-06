@@ -129,15 +129,24 @@ input[type=submit] {
   height:65px;
   background-repeat: no-repeat;
 }
-
-#bandButton {background-image: url(../img/guitarsico.svg);float:left;}
-#cityButton {background-image: url(../img/pinsico.svg);position: relative;left:85px;}
+#bandButton {
+  background-image: url(../img/guitarsico.svg);
+  float:left;
+  background-position-y:-65px;
+  background-size:65px auto;
+}
+#cityButton {
+  background-image: url(../img/pinsico.svg);
+  position: relative;
+  left:85px;
+  background-position-x: 5px;
+}
 
 #bandButton:hover, #cityButton:hover {
-  width: 65px;
-  height: 65px;
-  background-size: 65px auto;
-  background-position-y: top;
+  /* background-size: 65px auto; */
+  /* background-position-y: top; */
+  border-radius: 5em;
+  border:1px dotted white;
 }
 
 #searchInputs {
