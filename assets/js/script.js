@@ -23,7 +23,7 @@ function getEvents(searchParams, querySearch) {
         method: "GET"
     }).then(function (response) {
         console.log("pre if");
-       // if band search has no results do a query search: console.log(response.events[0])
+       // if band search has no results do a query search: 
         if (!response.events[0]) {
 
             var emptyLocation = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + emptySearch;
@@ -53,7 +53,7 @@ function getEvents(searchParams, querySearch) {
                     let dateTime = response.events[i].datetime_local;
             
                  
-
+                    //const to index our events for outputting to correct div
                     const eventId = response.events[i].id;
                     $(`.${searchreq}`).append(`<div class="columns" id="event-${eventId}">
                 <div class="column" id="results">
@@ -69,12 +69,7 @@ function getEvents(searchParams, querySearch) {
                 </div>
             </div>`);
 
-                    /*   $("#results").append("<ul>").addClass("eventReturn");
-                      $(".eventReturn").append("<li>Title: " + response.events[i].title + "</li>");
-                      $(".eventReturn").append("<li>Type of Event: " + response.events[i].type + "</li>");
-                      $(".eventReturn").append("<li>City: " + response.events[i].venue.city + "</li>");
-                      $(".eventReturn").append("<li>Venue: " + response.events[i].venue.name + "</li>"); */
-
+                    //pass data to weather api
                     getWeather(eventLat, eventLon, dateTime)
                         .then(function (weatherResponse) {
                             renderWeatherData(weatherResponse, eventId);
@@ -97,26 +92,26 @@ function getEvents(searchParams, querySearch) {
                 } else if (searchType == "band" && response.events[0].taxonomies[0].name == "sports" ){
                     console.log("else if");
                         $('#ajaxResponse').prepend(`<div class="columns headRow">
-                <div class="column" id="results">
-                    <div class="clearfix resultsHead">
-                        <h2 class="responseTitle" style="color:#fff">${$("#bandVal").val()}</h2>    
-                        ${"" /*<img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />*/}
-                        
-                    </div>
-                </div>
-            </div>`);
+                        <div class="column" id="results">
+                            <div class="clearfix resultsHead">
+                                <h2 class="responseTitle" style="color:#fff">${$("#bandVal").val()}</h2>    
+                                ${"" /*<img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />*/}
+                                
+                            </div>
+                        </div>
+                    </div>`);
                 } else { console.log("else");
-                    $('#ajaxResponse').prepend(`<div class="columns headRow"">
-            <div class="column" id="results">
-                <div class="clearfix resultsHead">
-                    <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
-                    <h2 class="responseTitle" style="color:#fff">${$("#cityVal").val()}</h2>
-                </div>
-            </div>
-        </div>`);
-                }; 
-                $('#cityVal').val('');
-                $('#bandVal').val('')
+                        $('#ajaxResponse').prepend(`<div class="columns headRow"">
+                        <div class="column" id="results">
+                            <div class="clearfix resultsHead">
+                                <img class="resultImg" width="100px" src="${response.events[0].performers[0].image}" />
+                                <h2 class="responseTitle" style="color:#fff">${$("#cityVal").val()}</h2>
+                            </div>
+                        </div>
+                    </div>`);
+                        }; 
+            $('#cityVal').val('');
+            $('#bandVal').val('')
         };
     });
 };
