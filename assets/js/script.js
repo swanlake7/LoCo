@@ -61,7 +61,7 @@ function getEvents(searchParams, querySearch) {
                         <li><h2>${response.events[i].title}</h2></li>
                         <li>Type of event: ${response.events[i].type}</li>
                         <li>City: ${response.events[i].venue.city}</li>
-                        <li>Venue: ${response.events[i].venue.name}</li>
+                        <li>Venue: <a href="https://maps.apple.com/?q=${response.events[i].venue.name}, ${response.events[i].venue.address}, ${response.events[i].venue.state}, ${response.events[i].venue.city}, ${response.events[i].venue.postal_code}" target="_blank" rel="noopener">${response.events[i].venue.name}</a></li>
                         <li>Date: ${response.events[i].datetime_local}</li>
                         <li><a href="${response.events[i].url}" target="_blank" re="noopener"  >Tickets Page</a></li>
                         <li>Average Price: $${response.events[i].stats.average_price}</li>
