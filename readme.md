@@ -19,8 +19,6 @@ The front end JS was kept in the index file to pass to our events generating JS 
 • Pearl - Front end Designer.  
 • Alexis - Back end Weather API using Dark Sky.  
 
-![desktopSearch](assets/img/imgReadme/desktopSearch.jpg)
-![mobileSearch](assets/img/imgReadme/mobileSearch.jpg)  
+![Search](assets/img/imgReadme/Search.jpg)
+![Results](assets/img/imgReadme/Results.jpg)  
 
-![desktopResults](assets/img/imgReadme/desktopResults.jpg)
-![mobileResults](assets/img/imgReadme/mobileResults.jpg)
