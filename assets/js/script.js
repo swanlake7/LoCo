@@ -15,7 +15,8 @@ $(document).ready(function () {
 function getEvents(searchParams, querySearch) {
     const searchString = $.param(searchParams);
     const emptySearch = $.param(querySearch);
-    var cncrtLoctaion = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + searchString;
+    const perPage = "per_page=15&";
+    var cncrtLoctaion = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + perPage + searchString;
 
     console.log("qUrl: " + cncrtLoctaion);
     $.ajax({
@@ -26,7 +27,7 @@ function getEvents(searchParams, querySearch) {
        // if band search has no results do a query search: 
         if (!response.events[0]) {
 
-            var emptyLocation = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + emptySearch;
+            var emptyLocation = "https://api.seatgeek.com/2/events?client_id=OTA1MzgzM3wxNTcyNTMzMTQ3Ljk3&" + perPage + emptySearch;
             console.log("empty" , emptyLocation);
             $.ajax({
                 url: emptyLocation,
