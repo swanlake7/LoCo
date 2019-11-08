@@ -58,7 +58,7 @@ function getEvents(searchParams, querySearch) {
                     $(`.${searchreq}`).append(`<div class="columns" id="event-${eventId}">
                 <div class="column" id="results">
                     <ul class="eventReturn">
-                        <li><h2>${response.events[i].title}</h2></li>
+                        <li><h2><a href="https://www.youtube.com/results?search_query=${response.events[i].performers[0].name}" target="_blank" rel="noopener"><img class="eventPlay" src="assets/img/playbtn.svg"></a>${response.events[i].title}</h2></li>
                         <li>Type of event: ${response.events[i].type}</li>
                         <li>City: ${response.events[i].venue.city}</li>
                         <li>Venue: <a href="https://maps.apple.com/?q=${response.events[i].venue.name}, ${response.events[i].venue.address}, ${response.events[i].venue.state}, ${response.events[i].venue.city}, ${response.events[i].venue.postal_code}" target="_blank" rel="noopener">${response.events[i].venue.name}</a></li>

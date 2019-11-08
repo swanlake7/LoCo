@@ -127,11 +127,23 @@ input[type=submit] {
   position: relative;
   left:85px;
   background-position-x: 5px;
+  background-position-y: 16px;
+
 }
 
 #bandButton:hover, #cityButton:hover {
-  border-radius: 5em;
-  border:1px dotted white;
+  cursor: pointer;
+}
+
+#bandButton:active, #cityButton:active {
+  border:none;
+  border-radius: 0;
+}
+
+
+img.eventPlay {
+  height: 1.4rem;
+  padding-right:.5em;
 }
 
 #searchInputs {
@@ -255,6 +267,7 @@ margin-bottom: .4em;
     font-size:1.8em;
     padding-bottom: 2.2rem;
   }
+  
 }
 
 @media only screen and (max-width:550px) {
