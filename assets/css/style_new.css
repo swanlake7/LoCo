@@ -194,6 +194,10 @@ option {
   font-size:.5em;
 }
 
+.noBotMargin {
+  margin-bottom:0;
+}
+
 .bandCol:not(:last-child) {
   margin-bottom:0;
 }
