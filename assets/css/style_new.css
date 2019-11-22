@@ -109,6 +109,10 @@ input[type=submit] {
   margin-right: 30px;
 }
 
+#bandSearch {
+  margin-bottom:0;
+}
+
 #bandButton, #cityButton {
   background-size: 50px auto;
   background-position-y: 15px;
