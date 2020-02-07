@@ -1,6 +1,8 @@
 # This is LoCo
 ## a search for happenings now and upcoming  
 
+Deployed Link: https://echo-dave.github.io/LoCo/
+
 We set out with the goal of building a simple and effective search tool for events - primarily in the music and sports area.  
 
 Through the power of APIs we’re able to extend search beyond just musicians or just teams to a broader search of a wide array of events when exact matches aren’t found. We wanted the ability to easily search places we plan to visit  - beyond just our favorite band’s upcoming schedule.  
